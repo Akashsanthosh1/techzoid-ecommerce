@@ -1,0 +1,428 @@
+
+        
+
+        <main class="main">
+        	<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        		<div class="container">
+        			<h1 class="page-title">Checkout<span>Shop</span></h1>
+        		</div><!-- End .container -->
+        	</div><!-- End .page-header -->
+            <nav aria-label="breadcrumb" class="breadcrumb-nav">
+                <div class="container">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                    </ol>
+                </div><!-- End .container -->
+            </nav><!-- End .breadcrumb-nav -->
+
+            <div class="page-content">
+            	<div class="checkout">
+	                <div class="container">
+            			<div class="checkout-discount">
+            				<form action="#" id="coupon">
+        						<input type="text" class="form-control" id="couponid">
+            					<label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to enter your code</span></label>
+                                <button type="button"  onclick="applycoupon('<%=total%>')" class="btn btn-outline-primary-2  ">Apply coupon</button>
+            				</form>
+            			</div><!-- End .checkout-discount -->
+            			<form action="#"  id="formdata">
+		                	<div class="row">
+		                		<div class="col-lg-9">
+		                			<h2 class="checkout-title">Billing Details</h2><!-- End .checkout-title -->
+		                				<div class="row">
+		                					<div class="col-sm-6">
+		                						<label>First Name *</label>
+		                						<input type="text" class="form-control" required name="fname" value="<%=ab.defaultaddress.name[0]%>">
+		                					</div><!-- End .col-sm-6 -->
+
+		                					<div class="col-sm-6">
+		                						<label>Last Name *</label>
+		                						<input type="text" class="form-control" required name="lname" value="<%=ab.defaultaddress.name[1]%>">
+		                					</div><!-- End .col-sm-6 -->
+		                				</div><!-- End .row -->
+
+	            						
+
+	            						<label>Country *</label>
+	            						<input type="text" class="form-control" required name="country" value="<%=ab.defaultaddress.country%>">
+
+	            						<label>Street address *</label>
+	            						<input type="text" class="form-control" placeholder="House number and Street name" required name="address1" value="<%=ab.defaultaddress.address[0]%>">
+	            						<input type="text" class="form-control" placeholder="Appartments, suite, unit etc ..." required name="address2" value="<%=ab.defaultaddress.address[1]%>">
+
+	            						<div class="row">
+		                					<div class="col-sm-6">
+		                						<label>Town / City *</label>
+		                						<input type="text" class="form-control" required name="city" value="<%=ab.defaultaddress.address[2]%>">
+		                					</div><!-- End .col-sm-6 -->
+
+		                					<div class="col-sm-6">
+		                						<label>State / County *</label>
+		                						<input type="text" class="form-control" required name="state" value="<%=ab.defaultaddress.address[3]%>">
+		                					</div><!-- End .col-sm-6 -->
+		                				</div><!-- End .row -->
+
+		                				<div class="row">
+		                					<div class="col-sm-6">
+		                						<label>Postcode / ZIP *</label>
+		                						<input type="text" class="form-control" required name="pin" value="<%=ab.defaultaddress.address[4]%>"> 
+		                					</div><!-- End .col-sm-6 -->
+
+		                					<div class="col-sm-6">
+		                						<label>Phone *</label>
+		                						<input type="tel" class="form-control" required name="phone" value="<%=ab.defaultaddress.phone %>">
+		                					</div><!-- End .col-sm-6 -->
+		                				</div><!-- End .row -->
+
+	                					<label>Email address *</label>
+	        							<input type="email" class="form-control" required name="email" value="<%=ab.defaultaddress.email%>">
+
+	        							
+
+										<div class="custom-control custom-checkbox">
+										<button><span><a href="" style="border: 0; ">add new address</a></span>	</button>
+										</div><!-- End .custom-checkbox -->
+
+	                					<label>Order notes (optional)</label>
+                                       
+	        							
+                                         
+                                          
+		                		</div><!-- End .col-lg-9 -->
+		                		<aside class="col-lg-3">
+		                			<div class="summary">
+		                				<h3 class="summary-title">Your Order</h3><!-- End .summary-title -->
+
+		                				<table class="table table-summary">
+		                					<thead>
+		                						<tr>
+		                							<th>Product</th>
+		                							<th>Total</th>
+		                						</tr>
+		                					</thead>
+
+		                					<tbody>
+		                						<tr>
+		                							<td><a href="#">Beige knitted elastic runner shoes</a></td>
+		                							<td>$84.00</td>
+		                						</tr>
+
+		                						<tr>
+		                							<td><a href="#">Blue utility pinafore denimdress</a></td>
+		                							<td>$76,00</td>
+		                						</tr>
+		                						<tr class="summary-subtotal">
+		                							<td>Subtotal:</td>
+		                							<td>$<%=total%></td>
+		                						</tr><!-- End .summary-subtotal -->
+		                						<tr>
+		                							<td>Offer Price:</td>
+		                							<td id="offerprice"></td>
+										
+		                						</tr>
+		                						<tr class="summary-total">
+		                							<td>Total:</td>
+		                							<td >
+														
+														<input class="d-none" id="offertotal" value="<%=total%>" name="total">
+														<span>$</span>
+														<span id="totalspan"><%=total%></span> 
+													</td>
+		                						</tr><!-- End .summary-total -->
+		                					</tbody>
+		                				</table><!-- End .table table-summary -->
+
+		                				<div class="accordion-summary" id="accordion-payment">
+											<tr >paymentmethod</tr>
+											<br>
+											<label style="color:#fcb941;font-weight: 400; font-size: 1.6rem;">
+												<input type="radio" name="paymentmethod" value="COD"> COD
+											</label><br>
+											<label  style="color:#fcb941;font-weight: 400; font-size: 1.6rem;">
+												<input type="radio" name="paymentmethod" value="ONLINE"> ONLINE
+											</label>
+										</div><!-- End .accordion -->
+
+		                				<button type="submit"  class="btn btn-outline-primary-2 btn-order btn-block">
+		                					<span class="btn-text">Place Order</span>
+		                					<span class="btn-hover-text">Proceed to Checkout</span>
+		                				</button>
+		                			</div><!-- End .summary -->
+		                		</aside><!-- End .col-lg-3 -->
+		                	</div><!-- End .row -->
+            			</form>
+                        <div class="row">
+                            <%ab.address.forEach((data)=>{%>
+                            <div class="card col-md-4">
+                                <input type="radio" id="addressChoice" name="contact" value="<%=data.id%>" />
+                                
+                                <div class="card-body bg-gray margin">
+                                    <p class="card-text text-center"><%=data.name%></p>
+                                    
+                                    <p class="card-text text-center"><%=data.country%></p>
+                                
+                                    <p class="card-text text-center"><%=data.address%></p>
+                                    
+                                    <p class="card-text text-center"><%=data.phone%></p>
+
+                                    <p class="card-text text-center"><%=data.email%></p> 
+                                </div>
+                                <div class="card-footer d-flex bg-transparent">
+                                    <button type="submit" onclick="makedefault('<%=data._id%>')" class="btn btn-secondary mx-auto">make default</button>
+                                  </div>                                            
+                            </div>
+
+                              <%});%>
+                        </div>
+	                </div><!-- End .container -->
+                </div><!-- End .checkout -->
+            </div><!-- End .page-content -->
+        </main><!-- End .main -->
+
+        <footer class="footer">
+        	<div class="footer-middle">
+	            <div class="container">
+	            	<div class="row">
+	            		<div class="col-sm-6 col-lg-3">
+	            			<div class="widget widget-about">
+	            				<img src="assets/images/logo.png" class="footer-logo" alt="Footer Logo" width="105" height="25">
+	            				<p>Praesent dapibus, neque id cursus ucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. </p>
+
+	            				<div class="social-icons">
+	            					<a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+	            					<a href="#" class="social-icon" target="_blank" title="Pinterest"><i class="icon-pinterest"></i></a>
+	            				</div><!-- End .soial-icons -->
+	            			</div><!-- End .widget about-widget -->
+	            		</div><!-- End .col-sm-6 col-lg-3 -->
+
+	            		<div class="col-sm-6 col-lg-3">
+	            			<div class="widget">
+	            				<h4 class="widget-title">Useful Links</h4><!-- End .widget-title -->
+
+	            				<ul class="widget-list">
+	            					<li><a href="about.html">About Molla</a></li>
+	            					<li><a href="#">How to shop on Molla</a></li>
+	            					<li><a href="#">FAQ</a></li>
+	            					<li><a href="contact.html">Contact us</a></li>
+	            					<li><a href="login.html">Log in</a></li>
+	            				</ul><!-- End .widget-list -->
+	            			</div><!-- End .widget -->
+	            		</div><!-- End .col-sm-6 col-lg-3 -->
+
+	            		<div class="col-sm-6 col-lg-3">
+	            			<div class="widget">
+	            				<h4 class="widget-title">Customer Service</h4><!-- End .widget-title -->
+
+	            				<ul class="widget-list">
+	            					<li><a href="#">Payment Methods</a></li>
+	            					<li><a href="#">Money-back guarantee!</a></li>
+	            					<li><a href="#">Returns</a></li>
+	            					<li><a href="#">Shipping</a></li>
+	            					<li><a href="#">Terms and conditions</a></li>
+	            					<li><a href="#">Privacy Policy</a></li>
+	            				</ul><!-- End .widget-list -->
+	            			</div><!-- End .widget -->
+	            		</div><!-- End .col-sm-6 col-lg-3 -->
+
+	            		<div class="col-sm-6 col-lg-3">
+	            			<div class="widget">
+	            				<h4 class="widget-title">My Account</h4><!-- End .widget-title -->
+
+	            				<ul class="widget-list">
+	            					<li><a href="#">Sign In</a></li>
+	            					<li><a href="cart.html">View Cart</a></li>
+	            					<li><a href="#">My Wishlist</a></li>
+	            					<li><a href="#">Track My Order</a></li>
+	            					<li><a href="#">Help</a></li>
+	            				</ul><!-- End .widget-list -->
+	            			</div><!-- End .widget -->
+	            		</div><!-- End .col-sm-6 col-lg-3 -->
+	            	</div><!-- End .row -->
+	            </div><!-- End .container -->
+	        </div><!-- End .footer-middle -->
+
+	        <div class="footer-bottom">
+	        	<div class="container">
+	        		<p class="footer-copyright">Copyright © 2019 Molla Store. All Rights Reserved.</p><!-- End .footer-copyright -->
+	        		<figure class="footer-payments">
+	        			<img src="assets/images/payments.png" alt="Payment methods" width="272" height="20">
+	        		</figure><!-- End .footer-payments -->
+	        	</div><!-- End .container -->
+	        </div><!-- End .footer-bottom -->
+        </footer><!-- End .footer -->
+    </div><!-- End .page-wrapper -->
+    <button id="scroll-top" title="Back to Top"><i class="icon-arrow-up"></i></button>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu-overlay"></div><!-- End .mobil-menu-overlay -->
+
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-wrapper">
+            <span class="mobile-menu-close"><i class="icon-close"></i></span>
+
+            <form action="#" method="get" class="mobile-search">
+                <label for="mobile-search" class="sr-only">Search</label>
+                <input type="search" class="form-control" name="mobile-search" id="mobile-search" placeholder="Search in..." required>
+                <button class="btn btn-primary" type="submit"><i class="icon-search"></i></button>
+            </form>
+            
+            <nav class="mobile-nav">
+                <ul class="mobile-menu">
+                    <li class="active">
+                        <a href="index.html">Home</a>
+
+                      
+            </nav><!-- End .mobile-nav -->
+
+            <div class="social-icons">
+                <a href="#" class="social-icon" target="_blank" title="Facebook"><i class="icon-facebook-f"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Twitter"><i class="icon-twitter"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Instagram"><i class="icon-instagram"></i></a>
+                <a href="#" class="social-icon" target="_blank" title="Youtube"><i class="icon-youtube"></i></a>
+            </div><!-- End .social-icons -->
+        </div><!-- End .mobile-menu-wrapper -->
+    </div><!-- End .mobile-menu-container -->
+
+    <!-- Sign in / Register Modal -->
+    <
+
+    <script>
+        function makedefault(id){
+			console.log('idd',id);
+            $.ajax({
+                url:'/getaddress',
+                data:{
+                    id:id
+                },
+                method:'post',
+                success:(response)=>{
+					console.log('consolelog')
+                    location.reload()
+					
+				}
+            })
+        }
+
+		
+		function applycoupon(total){
+		
+		
+		let couponid = document.getElementById('couponid').value;
+		
+		$.ajax({
+		url:'/applycoupon',
+		data:{
+		id:couponid,
+		total:total
+		},
+		method:'post',
+		success:(response)=>{
+
+		console.log('consolelog')
+		Toastify({
+                text: "coupon applied",
+                duration: 3000,
+                gravity: "bottom",
+                position: "center",  
+                style: {
+                    background: '#000000',
+                },
+           }).showToast();
+					console.log(response)
+					document.getElementById("offerprice").innerHTML=response
+					$('#offertotal').prop('value',response) 
+					$('#totalspan').html(response)
+					
+		}
+		})
+		} 
+
+		$("#formdata").submit((e)=>{
+			e.preventDefault()
+			console.log('llklk')
+			$.ajax({
+				
+				url:'/placeorder',
+				data:$('#formdata').serialize(),
+				method:'post',
+				success:(response)=>{
+					console.log('response',response);
+					if(response.id){
+						razorpaypayment(response)
+						
+					}else{
+						
+						
+						location.href='/orderplaced'
+					}
+					
+				}
+			})
+		})
+	
+		function razorpaypayment(order){
+				
+				var options = {
+    "key": "rzp_test_6P6QVkW7TyTLjP", // Enter the Key ID generated from the Dashboard
+    "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "RRR", //your business name
+    "description": "Test Transaction",
+    "image": "https://example.com/your_logo",
+    "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+	"handler": function (response){
+		
+      
+		verifyPayment(response,order)
+
+    },
+    "prefill": {
+        "name": "Gaurav Kumar", //your customer's name
+        "email": "gaurav.kumar@example.com",
+        "contact": "9000090000"
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    }
+};var rzp1 = new Razorpay(options);
+rzp1.open();
+
+			}
+
+
+
+			function verifyPayment(response,order){
+				console.log("razorpay=====",order)
+		console.log("razorpay payment=====",response)
+				$.ajax({
+		
+					url:"/verifypayment",
+					data:{
+						response:response,
+						order:order
+					},
+					method:"post",
+					success:(response)=>{
+
+                              if(response.status){
+								location.href='/orderplaced'
+							  }
+							  else{
+								alert("order failed")
+							  }
+					}
+				})
+			}
+
+
+    </script>
+	
+   

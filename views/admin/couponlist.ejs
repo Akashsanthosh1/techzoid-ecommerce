@@ -1,0 +1,92 @@
+
+
+<body>
+    <div class="screen-overlay"></div>
+   
+    <main class="main-wrap">
+        <section class="content-main">
+            <div class="content-header">
+                <div>
+                    <h2 class="content-title card-title">All Coupons</h2>
+                    
+                </div>
+                <div>
+                   
+                    <a href="/admin/addcoupon" class="btn btn-primary btn-sm rounded">Add a coupon</a>
+                </div>
+            </div>
+            <div class="card mb-4">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#ID</th>
+                                    <th scope="col">expirydate</th>
+                                    <th scope="col">offer(%)</th>
+                                    <th scope="col">maxoffer($)</th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <% response.forEach(function(user) { %>
+    
+                                 
+                                    <tr>
+                                        <td><%= user.couponid %></td>
+                                        <td><b><%= user.expirydate %></b></td>
+                                        <td><%= user.percentageoffer%>%</td>
+                                        <td>$<%= user.maxoffer%>.00</td>
+                                        
+                
+                                        
+                                       
+                                        <td class="text-end">
+                                           
+                                                <a href="/admin/deletecoupon<%=user._id %>" class="btn btn-md rounded font-sm ">Delete</a>
+                                                
+                                                
+                                           
+                                        </td>
+                                    </tr>
+                                     <%});%>
+
+                            </tbody>
+                        </table>
+                    </div> <!-- table-responsive //end -->
+                </div> <!-- card-body end// -->
+            </div> <!-- card end// -->
+            <div class="pagination-area mt-30 mb-50">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-start">
+                        <li class="page-item active"><a class="page-link" href="#">01</a></li>
+                        <li class="page-item"><a class="page-link" href="#">02</a></li>
+                        <li class="page-item"><a class="page-link" href="#">03</a></li>
+                        <li class="page-item"><a class="page-link dot" href="#">...</a></li>
+                        <li class="page-item"><a class="page-link" href="#">16</a></li>
+                        <li class="page-item"><a class="page-link" href="#"><i class="material-icons md-chevron_right"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </section> <!-- content-main end// -->
+        <footer class="main-footer font-xs">
+            <div class="row pb-30 pt-15">
+                <div class="col-sm-6">
+                    <script>
+                    document.write(new Date().getFullYear())
+                    </script> ©, Evara - HTML Ecommerce Template .
+                </div>
+                <div class="col-sm-6">
+                    <div class="text-sm-end">
+                        All rights reserved
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+</body>
+
+
+<!-- Mirrored from wp.alithemes.com/html/evara/evara-backend/page-products-grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 01 Aug 2021 15:33:21 GMT -->
