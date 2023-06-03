@@ -39,9 +39,10 @@
         						<label for="sortby">Categorized by:</label>
         						<div class="select-custom">
 									<select name="sortby" id="sortby" class="form-control">
-										<option value="popularity" selected="selected">Most Popular</option>
-										<option value="rating">Most Rated</option>
-										<option value="date">Date</option>
+                                        <option onclick="category('All')" value="popularity" ><a onclick="category('All')">All</a></option>
+                                        <option  value="rating"><a onclick="category('All')">speakers</a></option>
+                                        <option onclick="category('All')" value="date"><a href="">laptops</a></option>
+                                        <option value="date"><a href="">mobiles</a></option>
 									</select>
 								</div>
         					</div><!-- End .toolbox-sort -->
@@ -69,7 +70,7 @@
                                         <div class="product-action action-icon-top">
                                             <a onclick="addtocart('<%= data._id %>')" class="btn-product btn-cart"><span>add to cart</span></a>
                                             <a href="/product<%= data._id %>" class="btn-product btn-quickview" title="Quick view"><span>quick view</span></a>
-                                            <a href="#" class="btn-product btn-compare" title="Compare"><span>compare</span></a>
+                                           
                                         </div><!-- End .product-action -->
                                     </figure><!-- End .product-media -->
 
@@ -751,6 +752,16 @@
                 
             
             }
+        })
+    }
+    function category(data){
+        console.log('vccgv');
+        $.ajax({
+            url:'/category',
+            data:{
+                data:data
+            },
+            method:'post'
         })
     }
    

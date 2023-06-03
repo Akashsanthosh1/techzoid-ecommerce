@@ -322,7 +322,10 @@ cancelorder:(req,res)=>{
     ordercancel(id).then(()=>{
         res.redirect('/vieworders')
     })
-}    
+}    ,
+category:(req,res)=>{
+    console.log('querry',req.body);
+}
 
 
 }

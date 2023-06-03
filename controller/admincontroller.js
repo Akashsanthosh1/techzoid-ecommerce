@@ -1,6 +1,6 @@
 const { response } = require("../app");
 var {getuser,blockuser,unblockuser,saveproduct,getproducts,deleteproduct,editproduct,
-    viewcoupons,couponsave,coupondelete,getorders,getdetail,changestatus}=require('../helpers/product-helpers')
+    viewcoupons,couponsave,coupondelete,getorders,getdetail,changestatus,login}=require('../helpers/product-helpers')
 var db=require('../config/connection')
 var userModel=require('../models/admin-model')
 const bcrypt=require("bcrypt")
@@ -10,7 +10,7 @@ var productmodel=require('../models/product-schema')
 
 module.exports={
     admin:(req,res)=>{
-        res.render('admin/adminindex',{layout})
+        res.render('admin/login',{layout})
     },
     usermanage:(req,res)=>{
        
@@ -130,5 +130,9 @@ statuschange:(req,res)=>{
     changestatus(orderid,status).then((response)=>{
         res.json(response) 
     })
+},
+signin:(req,res)=>{
+    console.log('rreqbody',req.body);
+login(req.body)
 }
 }

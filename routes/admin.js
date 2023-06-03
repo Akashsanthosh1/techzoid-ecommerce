@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const{admin,usermanage,blockuser,unblockuser,productlist,addproduct,Addproduct,editproduct,
-  deleteproduct,couponpage,addcoupon,savecoupon,deletecoupon,vieworder,orderdetail,statuschange}=require('../controller/admincontroller');
+  deleteproduct,couponpage,addcoupon,savecoupon,deletecoupon,vieworder,orderdetail,statuschange,signin}=require('../controller/admincontroller');
 const multer = require('multer');
 const storage= multer.diskStorage({
     destination: (req,file,cb)=>{
@@ -17,6 +17,7 @@ const storage= multer.diskStorage({
 
 
 router.get('/',admin);
+router.post('/signin',signin)
 router.get('/usermanage',usermanage);
 router.get('/blockuser/:id',blockuser);
 router.get('/unblockuser/:id',unblockuser)

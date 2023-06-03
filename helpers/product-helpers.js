@@ -123,6 +123,10 @@ module.exports={
           
            
         })
+    },
+    login:(data)=>{
+console.log('data',data);
+
     }
     
 

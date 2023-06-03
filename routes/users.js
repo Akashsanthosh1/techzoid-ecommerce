@@ -11,7 +11,7 @@ const { index,
        requestotp, verifyotp, logout,
         addtocart, changeproductquantity,
          removeproduct, checkout ,productpage,address,saveaddress,getaddress,placeorder,applycoupon,vieworder,viewshop,
-        orderplaced,verifypayment,returnorder,cancelorder} = require('../controller/userController');
+        orderplaced,verifypayment,returnorder,cancelorder,category} = require('../controller/userController');
 const userHelper = require('../helpers/user-helpers');
 
 
@@ -43,5 +43,6 @@ router.get('/orderplaced',orderplaced);;
 router.get('/returnorder:id',returnorder)
 router.post('/verifypayment',verifypayment);
 router.get('/cancelorder:id',cancelorder);
+router.post("/category",category)
 
 module.exports = router;
